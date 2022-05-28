@@ -1,7 +1,7 @@
 {
-  "name": "mckorealauncher",
+  "name": "mckoreaclient",
   "version": "1.0.0",
-  "productName": "McKorea Launcher",
+  "productName": "McKorea Client",
   "description": "Modded Minecraft Launcher",
   "author": "Daniel Scalzi (https://github.com/dscalzi/), i3l3",
   "license": "UNLICENSED",

@@ -215,7 +215,7 @@
             <div class="settingsFileSelContainer">
                 <div class="settingsFileSelTitle">자바 실행 경로</div>
                 <div class="settingsFileSelContent">
-                    <div id="settingsJavaExecDetails">자바 8 업데이트 172 (x64) 선택됨</div>
+                    <div id="settingsJavaExecDetails">자바 17 선택됨</div>
                     <div class="settingsFileSelActions">
                         <div class="settingsFileSelIcon">
                             <svg class="settingsFileSelSVG" x="0px" y="0px" viewBox="0 0 305.001 305.001">
@@ -232,10 +232,10 @@
                             </svg>
                         </div>
                         <input class="settingsFileSelVal" id="settingsJavaExecVal" type="text" value="null" cValue="JavaExecutable" disabled>
-                        <button class="settingsFileSelButton" id="settingsJavaExecSel" dialogTitle="Select Java Executable" dialogDirectory="false">Choose File</button>
+                        <button class="settingsFileSelButton" id="settingsJavaExecSel" dialogTitle="Select Java Executable" dialogDirectory="false">파일을 선택하세요</button>
                     </div>
                 </div>
-                <div class="settingsFileSelDesc">The Java executable is validated before game launch. <strong>Requires Java 8 x64.</strong><br>The path should end with <strong>bin<%= process.platform === 'win32' ? '\\javaw.exe' : '/java' %></strong>.</div>
+                <div class="settingsFileSelDesc">자바 실행 파일은 게임 실행 전 유효한지 검사합니다. <strong>자바 17 x64를 필수로 합니다.</strong><br>경로는 <strong>bin<%= process.platform === 'win32' ? '\\javaw.exe' : '/java' %></strong>로 끝나야 합니다.</div>
             </div>
             <div id="settingsJVMOptsContainer">
                 <div id="settingsJVMOptsTitle">추가 JVM 설정</div>
@@ -256,18 +256,18 @@
                     </div>
                     <input id="settingsJVMOptsVal" cValue="JVMOptions" type="text">
                 </div>
-                <div id="settingsJVMOptsDesc">Options to be provided to the JVM at runtime. <em>-Xms</em> and <em>-Xmx</em> should not be included.<br><a href="https://docs.oracle.com/javase/8/docs/technotes/tools/<%= process.platform === 'win32' ? 'windows' : 'unix' %>/java.html">Available Options for Java 8</a>.</div>
+                <div id="settingsJVMOptsDesc">JVM이 실행될 때 제공될 옵션입니다. <em>-Xms</em> 와 <em>-Xmx</em> 는 포함되면 안됩니다.<br><a href="https://docs.oracle.com/en/java/javase/17/troubleshoot/command-line-options1.html">자바 17에 가능한 옵션들</a>.</div>
             </div>
         </div>
         <div id="settingsTabLauncher" class="settingsTab" style="display: none;">
             <div class="settingsTabHeader">
-                <span class="settingsTabHeaderText">Launcher Settings</span>
-                <span class="settingsTabHeaderDesc">Options related to the launcher itself.</span>
+                <span class="settingsTabHeaderText">런처 설정</span>
+                <span class="settingsTabHeaderDesc">런처와 관련된 설정입니다.</span>
             </div>
             <div class="settingsFieldContainer">
                 <div class="settingsFieldLeft">
-                    <span class="settingsFieldTitle">Allow Pre-Release Updates.</span>
-                    <span class="settingsFieldDesc">Pre-Releases include new features which may have not been fully tested or integrated.<br>This will always be true if you are using a pre-release version.</span>
+                    <span class="settingsFieldTitle">프리릴리즈 업데이트 허용</span>
+                    <span class="settingsFieldDesc">프리릴리즈는 아직 많이 테스트해보지 않은 새로운 기능을 포함합니다.<br>만약 프리릴리즈를 사용하고 있다면 활성화 되어있습니다.</span>
                 </div>
                 <div class="settingsFieldRight">
                     <label class="toggleSwitch">
@@ -278,7 +278,7 @@
             </div>
             <div class="settingsFileSelContainer">
                 <div class="settingsFileSelContent">
-                    <div class="settingsFieldTitle" id="settingsDataDirTitle">Data Directory</div>
+                    <div class="settingsFieldTitle" id="settingsDataDirTitle">데이터 경로</div>
                     <div class="settingsFileSelActions">
                         <div class="settingsFileSelIcon">
                             <svg class="settingsFileSelSVG">
@@ -290,90 +290,90 @@
                             </svg>
                         </div>
                         <input class="settingsFileSelVal" type="text" value="null" cValue="DataDirectory" disabled>
-                        <button class="settingsFileSelButton" dialogTitle="Select Data Directory" dialogDirectory="true">Choose Folder</button>
+                        <button class="settingsFileSelButton" dialogTitle="Select Data Directory" dialogDirectory="true">폴더 선택</button>
                     </div>
                 </div>
-                <div class="settingsFileSelDesc">All game files and local Java installations will be stored in the data directory.<br>Screenshots and world saves are stored in the instance folder for the corresponding server configuration.</div>
+                <div class="settingsFileSelDesc">모든 게임 파일과 자바에 설치된 것은 데이터 경로에 저장됩니다.<br>스크린샷과 월드 세이브는 해당 서버 구성에 대한 인스턴스 폴더에 저장됩니다.</div>
             </div>
         </div>
         <div id="settingsTabAbout" class="settingsTab" style="display: none;">
             <div class="settingsTabHeader">
-                <span class="settingsTabHeaderText">About</span>
-                <span class="settingsTabHeaderDesc">View information and release notes for the current version.</span>
+                <span class="settingsTabHeaderText">정보</span>
+                <span class="settingsTabHeaderDesc">이 버전의 정보와 릴리즈 노트를 확인해 보세요.</span>
             </div>
             <div id="settingsAboutCurrentContainer">
                 <div id="settingsAboutCurrentContent">
                     <div id="settingsAboutCurrentHeadline">
                         <img id="settingsAboutLogo" src="./assets/images/SealCircle.png">
-                        <span id="settingsAboutTitle">Helios Launcher</span>
+                        <span id="settingsAboutTitle">McKorea Client</span>
                     </div>
                     <div id="settingsAboutCurrentVersion">
                         <div id="settingsAboutCurrentVersionCheck">&#10003;</div>
                         <div id="settingsAboutCurrentVersionDetails">
-                            <span id="settingsAboutCurrentVersionTitle">Stable Release</span>
+                            <span id="settingsAboutCurrentVersionTitle">안정적 버전</span>
                             <div id="settingsAboutCurrentVersionLine">
-                                <span id="settingsAboutCurrentVersionText">Version </span>
+                                <span id="settingsAboutCurrentVersionText">버전 </span>
                                 <span id="settingsAboutCurrentVersionValue">0.0.1-alpha.12</span>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div id="settingsAboutButtons">
-                    <a href="https://github.com/dscalZi/HeliosLauncher" id="settingsAboutSourceButton" class="settingsAboutButton">Source (GitHub)</a>
+                    <!-- <a href="https://github.com/dscalZi/HeliosLauncher" id="settingsAboutSourceButton" class="settingsAboutButton">소스</a> -->
                     <!-- The following must be included in third-party usage. -->
                     <!-- <a href="https://github.com/dscalzi/HeliosLauncher" id="settingsAboutSourceButton" class="settingsAboutButton">Original Source</a> -->
-                    <a href="https://github.com/dscalZi/HeliosLauncher/issues" id="settingsAboutSupportButton" class="settingsAboutButton">Support</a>
-                    <a href="#" id="settingsAboutDevToolsButton" class="settingsAboutButton">DevTools Console</a>
+                    <a href="https://github.com/dscalZi/HeliosLauncher/issues" id="settingsAboutSupportButton" class="settingsAboutButton">버그 제보</a>
+                    <a href="#" id="settingsAboutDevToolsButton" class="settingsAboutButton">콘솔</a>
                 </div>
             </div>
             <div class="settingsChangelogContainer">
                 <div class="settingsChangelogContent">
                     <div class="settingsChangelogHeadline">
-                        <div class="settingsChangelogLabel">Release Notes</div>
-                        <div class="settingsChangelogTitle">Changelog</div>
+                        <div class="settingsChangelogLabel">릴리즈 노트</div>
+                        <div class="settingsChangelogTitle">변경사항</div>
                     </div>
                     <div class="settingsChangelogText">
-                        No Release Notes
+                        릴리즈 노트 없음
                     </div>
                 </div>
                 <div class="settingsChangelogActions">
-                    <a class="settingsChangelogButton settingsAboutButton" href="#">View Release Notes on GitHub</a>
+                    <a class="settingsChangelogButton settingsAboutButton" href="#">깃허브에서 릴리즈 노트 보기</a>
                 </div>
             </div>
         </div>
         <div id="settingsTabUpdate" class="settingsTab" style="display: none;">
             <div class="settingsTabHeader">
-                <span class="settingsTabHeaderText">Launcher Updates</span>
-                <span class="settingsTabHeaderDesc">Download, install, and review updates for the launcher.</span>
+                <span class="settingsTabHeaderText">런처 업데이트</span>
+                <span class="settingsTabHeaderDesc">다운로드하고 설치해서 새로운 기능들을 사용해보세요.</span>
             </div>
             <div id="settingsUpdateStatusContainer">
                 <div id="settingsUpdateStatusContent">
                     <div id="settingsUpdateStatusHeadline">
-                        <span id="settingsUpdateTitle">You Are Running the Latest Version</span>
+                        <span id="settingsUpdateTitle">최신 버전을 사용 중입니다.</span>
                     </div>
                     <div id="settingsUpdateVersion">
                         <div id="settingsUpdateVersionCheck">&#10003;</div>
                         <div id="settingsUpdateVersionDetails">
-                            <span id="settingsUpdateVersionTitle">Stable Release</span>
+                            <span id="settingsUpdateVersionTitle">안정적 버전</span>
                             <div id="settingsUpdateVersionLine">
-                                <span id="settingsUpdateVersionText">Version </span>
+                                <span id="settingsUpdateVersionText">버전 </span>
                                 <span id="settingsUpdateVersionValue">0.0.1-alpha.18</span>
                             </div>
                         </div>
                     </div>
                     <div id="settingsUpdateActionContainer">
-                        <button id="settingsUpdateActionButton">Check for Updates</button>
+                        <button id="settingsUpdateActionButton">업데이트 확인중</button>
                     </div>
                 </div>
             </div>
             <div class="settingsChangelogContainer">
                 <div class="settingsChangelogContent">
                     <div class="settingsChangelogHeadline">
-                        <div class="settingsChangelogLabel">What's New</div>
-                        <div class="settingsChangelogTitle">Update Release Notes</div>
+                        <div class="settingsChangelogLabel">새로운 기능</div>
+                        <div class="settingsChangelogTitle">업데이트 릴리즈 노트</div>
                     </div>
                     <div class="settingsChangelogText">
-                        No Release Notes
+                        릴리즈 노트 없음
                     </div>
                 </div>
             </div>

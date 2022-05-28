@@ -1,4 +1,4 @@
-appId: 'mckorealauncher'
+appId: 'mckoreaclient'
 productName: 'McKorea Client'
 artifactName: '${productName}-setup-${version}.${ext}'
 
