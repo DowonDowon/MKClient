@@ -69,6 +69,12 @@ function resolveMinRAM(){
  * Dynamic = Calculated by a private function.
  * Resolved = Resolved externally, defaults to null.
  */
+
+/*                '-XX:+UseConcMarkSweepGC',
+                '-XX:+CMSIncrementalMode',
+                '-XX:-UseAdaptiveSizePolicy',
+                '-Xmn128M'*/
+
 const DEFAULT_CONFIG = {
     settings: {
         java: {
@@ -76,11 +82,13 @@ const DEFAULT_CONFIG = {
             maxRAM: resolveMaxRAM(), // Dynamic
             executable: null,
             jvmOptions: [
-                '-XX:+UseConcMarkSweepGC',
-                '-XX:+CMSIncrementalMode',
-                '-XX:-UseAdaptiveSizePolicy',
-                '-Xmn128M'
-            ],
+                '-XX:+UnlockExperimentalVMOptions',
+                '-XX:+UseG1GC',
+                '-XX:G1NewSizePercent=20',
+                '-XX:G1ReservePercent=20',
+                '-XX:MaxGCPauseMillis=50',
+                '-XX:G1HeapRegionSize=32M'
+            ]
         },
         game: {
             resWidth: 1280,
